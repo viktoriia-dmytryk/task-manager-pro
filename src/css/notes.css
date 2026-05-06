@@ -27,6 +27,14 @@
   --ghost-shadow: rgba(73, 21, 76, 0.6);
 
   --backImage: url('../images/butterfly.svg');
+
+  --containColor: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.08)
+  );
+
+  --containColorThemeBtn: rgba(182, 137, 210, 0.3);
 }
 .title {
   font-family: 'Comforter', serif;
@@ -68,7 +76,7 @@
 }
 .task-name-input::placeholder {
   font-family: 'Roboto Slab', serif;
-  color: rgb(245, 245, 245, 0.8);
+  color: var(--text-light);
 }
 .task-input {
   background-color: transparent;
@@ -254,11 +262,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.18),
-    rgba(255, 255, 255, 0.08)
-  );
+  background: var(--containColor);
   backdrop-filter: blur(12px);
   border-radius: 59px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -318,6 +322,16 @@ body.theme-grass {
   --btn-shadow: rgba(67, 160, 71, 0.3);
   --btn-shadow-hover: rgba(67, 160, 71, 0.45);
   --backImage: url('../images/grass.svg');
+  --containColor: linear-gradient(
+    135deg,
+    rgba(0, 12, 13, 0.5),
+    rgba(10, 65, 45, 0.3)
+  );
+  --containColorThemeBtn: linear-gradient(
+    135deg,
+    rgba(0, 104, 5, 0.4),
+    rgba(0, 69, 5, 0.7)
+  );
 }
 
 body.theme-year {
@@ -333,11 +347,22 @@ body.theme-year {
   --text-muted: rgba(255, 255, 255, 0.7);
 
   /* buttons */
-  --btn-gradient: linear-gradient(135deg, #c62828, #2e7d32);
+  --btn-gradient: linear-gradient(135deg, #eded00, #d60e03);
   --btn-shadow: rgba(198, 40, 40, 0.3);
   --btn-shadow-hover: rgba(198, 40, 40, 0.45);
 
   --backImage: url('../images/red-new-year.svg');
+
+  --containColor: linear-gradient(
+    135deg,
+    rgba(113, 0, 0, 0.5),
+    rgb(123, 16, 16, 0.5)
+  );
+  --containColorThemeBtn: linear-gradient(
+    135deg,
+    rgba(77, 9, 21, 0.8),
+    rgba(148, 26, 26, 0.8)
+  );
 }
 
 body.theme-violet {
@@ -348,13 +373,23 @@ body.theme-violet {
   --ghost-shadow: rgba(74, 20, 140, 0.5);
 
   /* text */
-  --text-primary: #4a148c;
-  --text-light: #ede7f6;
+  --text-primary: #362e7f;
+  --text-light: #ffffff;
   --text-muted: rgba(74, 20, 140, 0.6);
 
   /* buttons */
-  --btn-gradient: linear-gradient(135deg, #7e57c2, #ab47bc);
-  --btn-shadow: rgba(126, 87, 194, 0.3);
-  --btn-shadow-hover: rgba(126, 87, 194, 0.45);
+  --btn-gradient: linear-gradient(135deg, #7e57c2, #362e7f);
+  --btn-shadow: rgba(220, 172, 255, 0.1);
+  --btn-shadow-hover: rgba(12, 76, 26, 0.1);
   --backImage: url('../images/violet-flower.svg');
+  --containColor: linear-gradient(
+    135deg,
+    rgba(74, 5, 117, 0.5),
+    rgba(50, 26, 148, 0.3)
+  );
+  --containColorThemeBtn: linear-gradient(
+    135deg,
+    rgba(74, 5, 117, 0.5),
+    rgba(50, 26, 148, 0.3)
+  );
 }

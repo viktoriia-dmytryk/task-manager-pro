@@ -2,9 +2,11 @@ import { onStartMenuRender } from './main-screen';
 import { refs } from './refs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { getFromLocalStorage, saveToLocalStorage } from './storage';
 
 refs.toMenuBtn.addEventListener('click', onToMenuBtnClick);
 refs.themeBtn.addEventListener('click', onThemeBtnClick);
+document.body.className = getFromLocalStorage('theme');
 
 function onToMenuBtnClick(event) {
   onStartMenuRender();
@@ -26,6 +28,9 @@ function onThemeBtnClick(event) {
 
       modalTheme.close();
       document.body.className = `theme-${event.target.dataset.background}`;
+      const themeClass = document.body.className;
+
+      saveToLocalStorage('theme', themeClass);
     },
     { once: true }
   );
