@@ -71,3 +71,14 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.notes-list-item {
+  position: relative;
+}
+.theme-btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}

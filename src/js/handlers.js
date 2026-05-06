@@ -1,5 +1,5 @@
 import Sortable from 'sortablejs';
-import { taskArray } from './main-screen';
+import { onStartMenuRender, taskArray } from './main-screen';
 import { refs } from './refs';
 import { saveToLocalStorage, getFromLocalStorage } from './storage';
 
@@ -7,17 +7,35 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 let currentTaskId = null;
 let editingNoteId = null;
+
 export function onNotesListClick(event) {
   const btn = event.target.closest('.notes-btn');
-  if (!btn) return;
 
-  const id = Number(btn.dataset.id);
-  currentTaskId = id;
+  if (event.target.closest('.delete-note-btn')) {
+    removeElementModal(`Бажаєте видалити це завдання?`, () => {
+      const btnDel = event.target.closest('.delete-note-btn');
 
-  const currentNotesList = taskArray.find(element => element.taskId === id);
-  if (!currentNotesList) return;
+      const li = btnDel.closest('.notes-list-item');
+      if (!li) return;
+      const noteId = Number(li.querySelector('.notes-btn').dataset.id);
 
-  refs.mainPage.innerHTML = `<section class="section-task">
+      const index = taskArray.findIndex(item => item.taskId === noteId);
+      if (index !== -1) {
+        taskArray.splice(index, 1);
+      }
+
+      saveToLocalStorage('taskStorage', taskArray);
+      onStartMenuRender();
+    });
+  }
+  if (btn) {
+    const id = Number(btn.dataset.id);
+    currentTaskId = id;
+
+    const currentNotesList = taskArray.find(element => element.taskId === id);
+    if (!currentNotesList) return;
+
+    refs.mainPage.innerHTML = `<section class="section-task">
     <div class="container notes">
       <h1 class="title">${escapeHTML(currentNotesList.title)}</h1>
       <form class="controls-form" autocomplete="off">
@@ -35,21 +53,22 @@ export function onNotesListClick(event) {
     </div>
   </section>`;
 
-  Sortable.create(refs.listTask, {
-    animation: 250,
-    easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
-    ghostClass: 'sortable-ghost',
-    chosenClass: 'sortable-chosen',
-    dragClass: 'sortable-drag',
-  });
+    Sortable.create(refs.listTask, {
+      animation: 250,
+      easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+      ghostClass: 'sortable-ghost',
+      chosenClass: 'sortable-chosen',
+      dragClass: 'sortable-drag',
+    });
 
-  refs.toMenuBtn.style.display = '';
-  renderNotes();
+    refs.toMenuBtn.style.display = '';
+    renderNotes();
 
-  refs.formTask.addEventListener('submit', onAddBtnTaskSubmit);
-  refs.listTask.addEventListener('change', onListTaskClick);
-  refs.listTask.addEventListener('click', onListTaskClickDelete);
-  refs.listTask.addEventListener('click', onListEdit);
+    refs.formTask.addEventListener('submit', onAddBtnTaskSubmit);
+    refs.listTask.addEventListener('change', onListTaskClick);
+    refs.listTask.addEventListener('click', onListTaskClickDelete);
+    refs.listTask.addEventListener('click', onListEdit);
+  }
 }
 
 export function onAddBtnTaskSubmit(event) {

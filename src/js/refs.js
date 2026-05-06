@@ -43,4 +43,6 @@ export const refs = {
   get toMenuBtn() {
     return document.querySelector('.to-menu-btn');
   },
+
+  themeBtn: document.querySelector('.theme-btn'),
 };

@@ -12,14 +12,13 @@ function taskBtnListRerderer() {
     .map(item => {
       return `<li class="notes-list-item">
               <button class="notes-btn" type="button" data-id="${item.taskId}">${escapeHTML(item.title)}</button>
+              <button class="delete-note-btn">✕</button>
               
             </li>`;
     })
     .join('');
   return taskList;
 }
-
-console.log(taskArray);
 
 document.addEventListener('DOMContentLoaded', onStartMenuRender);
 
@@ -87,3 +86,5 @@ function onCreateBtnClick(event) {
     { once: true }
   );
 }
+
+function deleteCurrentNotes(event) {}

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Roboto Slab", serif;
+  font-family: 'Roboto Slab', serif;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -18,7 +18,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  background-image: url("../images/butterfly.svg");
+  background-image: url('../images/butterfly.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
