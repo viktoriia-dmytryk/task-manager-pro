@@ -25,6 +25,8 @@
   /* drag & ghost */
   --ghost-bg: rgba(73, 21, 76, 0.4);
   --ghost-shadow: rgba(73, 21, 76, 0.6);
+
+  --backImage: url('../images/butterfly.svg');
 }
 .title {
   font-family: 'Comforter', serif;
@@ -50,7 +52,7 @@
   background-color: transparent;
   outline: none;
   border-radius: 20px;
-  color: whitesmoke;
+  color: var(--text-light);
   width: 258px;
   padding: 12px;
   border: 2px solid whitesmoke;
@@ -296,6 +298,7 @@ body.theme-butterfly {
   --btn-gradient: linear-gradient(135deg, #ba68c8, #f06292);
   --btn-shadow: rgba(186, 104, 200, 0.3);
   --btn-shadow-hover: rgba(186, 104, 200, 0.45);
+  --backImage: url('../images/butterfly.svg');
 }
 
 body.theme-grass {
@@ -314,6 +317,7 @@ body.theme-grass {
   --btn-gradient: linear-gradient(135deg, #43a047, #81c784);
   --btn-shadow: rgba(67, 160, 71, 0.3);
   --btn-shadow-hover: rgba(67, 160, 71, 0.45);
+  --backImage: url('../images/grass.svg');
 }
 
 body.theme-year {
@@ -332,6 +336,8 @@ body.theme-year {
   --btn-gradient: linear-gradient(135deg, #c62828, #2e7d32);
   --btn-shadow: rgba(198, 40, 40, 0.3);
   --btn-shadow-hover: rgba(198, 40, 40, 0.45);
+
+  --backImage: url('../images/red-new-year.svg');
 }
 
 body.theme-violet {
@@ -350,4 +356,5 @@ body.theme-violet {
   --btn-gradient: linear-gradient(135deg, #7e57c2, #ab47bc);
   --btn-shadow: rgba(126, 87, 194, 0.3);
   --btn-shadow-hover: rgba(126, 87, 194, 0.45);
+  --backImage: url('../images/violet-flower.svg');
 }

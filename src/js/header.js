@@ -23,23 +23,7 @@ function onThemeBtnClick(event) {
     'click',
     event => {
       if (!event.target.classList.contains('theme-choise')) return;
-      switch (event.target.dataset.background) {
-        case 'butterfly':
-          document.body.style.backgroundImage =
-            'url("../images/butterfly.svg")';
-          break;
-        case 'grass':
-          document.body.style.backgroundImage = 'url("../images/grass.svg")';
-          break;
-        case 'year':
-          document.body.style.backgroundImage =
-            'url("../images/red-new-year.svg")';
-          break;
-        case 'violet':
-          document.body.style.backgroundImage =
-            'url("../images/violet-flower.svg")';
-          break;
-      }
+
       modalTheme.close();
       document.body.className = `theme-${event.target.dataset.background}`;
     },

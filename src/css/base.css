@@ -18,7 +18,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  background-image: url('../images/butterfly.svg');
+  background-image: var(--backImage);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
